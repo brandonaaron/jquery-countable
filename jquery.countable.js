@@ -18,15 +18,15 @@ $.fn.extend({
 				className: 'counter',
 				tagName: 'span',
 				interval: 750,
-				positiveCopy: "You have {n} characters left.",
-				negativeCopy: "You are {n} characters over.",
+				positiveCopy: "You have {n}&nbsp;characters left.",
+				negativeCopy: "You are {n}&nbsp;characters over.",
 				fadeDuration: 'normal'
 			}, options);
 			
 			$el = $('<'+options.tagName+'/>')
 				.html( options.positiveCopy.replace("{n}", '<span class="num"/>') )
-				.addClass( options.className )
-				.css({ opacity: 0 });
+				.addClass( options.className );
+			if ( $.support.opacity ) $el.css({ opacity: 0 }); // don't set opacity for IE to avoid clear text issues.
 			$el[options.appendMethod]($this);
 			
 			$this
@@ -46,7 +46,9 @@ $.fn.extend({
 				if ( $el.is(':visible') && percentage_complete < options.threshold )
 					$el.hide();
 					
-				$el.stop().fadeTo( options.fadeDuration, percentage_complete >= options.threshold ? opacity : 0 );
+				if ( $.support.opacity ) // don't set opacity for IE to avoid clear text issues.
+					$el.stop().fadeTo( options.fadeDuration, percentage_complete >= options.threshold ? opacity : 0 );
+				
 				if ( char_diff >= 0 ) {
 					if ( $el.is( '.'+options.maxClassName ) )
 						$el.html( options.positiveCopy.replace("{n}", '<span class="num"/>') );
