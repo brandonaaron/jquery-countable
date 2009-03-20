@@ -20,6 +20,30 @@ The countable plugin has 11 settings:
 * `negativeCopy` - The copy to use when the character count is over the max. Use `{n}` to denote where the number should go. Default is "You are {n} characters over.".
 * `fadeDuration` - The duration of the fade animations. Default is 'normal'.
 
+## Examples
+
+Add counter to all textarea objects on the page using defaults:
+  $("textarea").countable();
+
+Add counters to a specific set of text fields, before each element:
+  $("#myTextBox, textarea.info").countable({ appendMethod: "insertBefore" });
+
+Add counter to a specific textarea, but display in a given container element (with other advanced options):
+  $("#comments").each(function() {
+    $(this).countable({
+      threshold: .75,
+      appendMethod: "appendTo",
+      target: $(this).parent().find("label small"),
+      startOpacity: 1,
+      maxLength: $(this).metadata().maxLength,
+      positiveCopy: " ({n} characters left)",
+      negativeCopy: " ({n} characters over the limit)",
+      fadeDuration: 0
+    })
+  });
+
+Note: In the last example, the code is wrapped in an 'each' function call to get 'this' to point to the text element. Also, 'maxLength' is being pulled from contextual information using the metadata jQuery plugin (http://plugins.jquery.com/project/metadata).
+
 ## License
 
 The expandable plugin is dual licensed *(just like jQuery)* under the [MIT](http://www.opensource.org/licenses/mit-license.php) and [GPL](http://www.opensource.org/licenses/gpl-license.php) licenses.
