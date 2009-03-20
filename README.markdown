@@ -8,7 +8,8 @@ A jQuery plugin that adds a character counter to inputs and textareas.
 The countable plugin has 11 settings:
 
 * `threshold` - The percentage at which the counter begins to fade in. Default is 0.5.
-* `appendMethod` - Either `insertAfter` or `insertBefore` to insert the counter after or before the input/textarea. Default is `insertAfter`.
+* `appendMethod` - One of `insertAfter`, `insertBefore`, `prependTo`, or `appendTo` to insert the counter after or before the input/textarea or prepended or appended to the `target` element. Default is `insertAfter`.
+* `target` - Container element into which to place the counter
 * `startOpacity` - The percentage of opacity it should start out with once it reaches the threshold. Default is 0.25.
 * `maxLength` - The maximum number of characters. Default uses the `maxlength` attribute of the input/textarea.
 * `maxClassName` - The class name to add once the user has gone over the max number of characters. Default is 'maxed'.
