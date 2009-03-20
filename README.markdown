@@ -23,12 +23,15 @@ The countable plugin has 12 settings:
 ## Examples
 
 Add counter to all textarea objects on the page using defaults:
+
     $("textarea").countable();
 
 Add counters to a specific set of text fields, before each element:
+
     $("#myTextBox, textarea.info").countable({ appendMethod: "insertBefore" });
 
 Add counter to a specific textarea, but display in a given container element (with other advanced options):
+
     $("#comments").each(function() {
       $(this).countable({
         threshold: .75,
