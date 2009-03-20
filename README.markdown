@@ -40,7 +40,7 @@ Add counter to a specific textarea, but display in a given container element (wi
         negativeCopy: " ({n} characters over the limit)",
         fadeDuration: 0
       })
-   });
+    });
 
 _Note: In the last example, the code is wrapped in an `each()` function call to get `this` to point to the text element. Also, `maxLength` is being pulled from contextual information using the metadata jQuery plugin (<http://plugins.jquery.com/project/metadata>)._
 
