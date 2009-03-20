@@ -10,10 +10,11 @@ $.fn.extend({
 		return this.each(function() {
 			var $this = $(this), interval, prev_char_diff, $el;
 			options = $.extend({
-				threshold: 0.5,
-				appendMethod: 'insertAfter', // insertBefore || insertAfter
+				threshold: .5,
+				appendMethod: 'insertAfter', // insertBefore || insertAfter || prependTo || appendTo
+				target: $this, // element in which to place the counter
 				startOpacity: .25,
-				maxLength: parseInt( $this.attr('maxlength'), 10 ),
+				maxLength: parseInt( $this.attr('maxlength'), 10 ) || 0,
 				maxClassName: 'maxed',
 				className: 'counter',
 				tagName: 'span',
@@ -27,7 +28,7 @@ $.fn.extend({
 				.html( options.positiveCopy.replace("{n}", '<span class="num"/>') )
 				.addClass( options.className );
 			if ( $.support.opacity ) $el.css({ opacity: 0 }); // don't set opacity for IE to avoid clear text issues.
-			$el[options.appendMethod]($this);
+			$el[options.appendMethod](options.target);
 			
 			$this
 				.bind('keyup', check)
