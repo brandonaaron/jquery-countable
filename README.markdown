@@ -5,7 +5,7 @@ A jQuery plugin that adds a character counter to inputs and textareas.
 
 ## Settings
 
-The countable plugin has 12 settings:
+The countable plugin has 13 settings:
 
 * `threshold` - The percentage at which the counter begins to fade in. Default is **0.5**.
 * `appendMethod` - One of **insertAfter**, **insertBefore**, **prependTo**, or **appendTo** to insert the counter after or before the input/textarea or prepend or append to the **target** element. Default is **'insertAfter'**.
@@ -19,6 +19,7 @@ The countable plugin has 12 settings:
 * `positiveCopy` - The copy to use when the character count is below the max. Use `{n}` to denote where the number should go. Default is **'You have {n} characters left.'**.
 * `negativeCopy` - The copy to use when the character count is over the max. Use `{n}` to denote where the number should go. Default is **'You are {n} characters over.'**.
 * `fadeDuration` - The duration of the fade animations. Default is **'normal'**.
+* `defaultText` - Text to ignore in the character count. This would be used if you have default text that disappears when focus is brought to the text box. Default is **''**.
 
 ## Examples
 
@@ -41,7 +42,8 @@ Add counter to a specific textarea, but display in a given container element (wi
         maxLength: $(this).metadata().maxLength,
         positiveCopy: " ({n} characters left)",
         negativeCopy: " ({n} characters over the limit)",
-        fadeDuration: 0
+        fadeDuration: 0,
+        defaultText: "Enter message"
       })
     });
 
