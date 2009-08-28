@@ -1,6 +1,14 @@
 /*! Copyright (c) 2009 Brandon Aaron (http://brandonaaron.net)
  * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) 
  * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
+ *
+ * Modified by Neil Monroe (neil.monroe@gmail.com)
+ *
+ * 2009-08-28 - Added 'defaultText' option to specify text to ignore if using label
+ *              text inside the field that is not considered user-entered content.
+ *
+ * 2009-03-20 - Initial release. Enhanced Brandon's version by adding the ability
+ *              to apply the count to a target container.
  */
 
 (function($) {
@@ -19,13 +27,14 @@ $.fn.extend({
 				className: 'counter',
 				tagName: 'span',
 				interval: 750,
-				positiveCopy: "You have {n}&nbsp;characters left.",
-				negativeCopy: "You are {n}&nbsp;characters over.",
-				fadeDuration: 'normal'
+				positiveCopy: 'You have {n}&nbsp;characters left.',
+				negativeCopy: 'You are {n}&nbsp;characters over.',
+				fadeDuration: 'normal',
+				defaultText: '' // text to disregard in the character count
 			}, options);
 			
 			$el = $('<'+options.tagName+'/>')
-				.html( options.positiveCopy.replace("{n}", '<span class="num"/>') )
+				.html( options.positiveCopy.replace('{n}', '<span class="num"/>') )
 				.addClass( options.className );
 			if ( $.support.opacity ) $el.css({ opacity: 0 }); // don't set opacity for IE to avoid clear text issues.
 			$el[options.appendMethod](options.target);
@@ -38,7 +47,7 @@ $.fn.extend({
 				});
 			
 			function check() {
-				var val = $this.val(), length = val.length, percentage_complete = length/options.maxLength, char_diff = options.maxLength - length;
+				var val = $this.val(), length = (val == options.defaultText ? 0 : val.length), percentage_complete = length/options.maxLength, char_diff = options.maxLength - length;
 				if ( prev_char_diff != undefined && char_diff == prev_char_diff ) return;
 				opacity = options.startOpacity + ((options.threshold - percentage_complete) * ((options.startOpacity * 2) - 2));
 				
@@ -52,19 +61,19 @@ $.fn.extend({
 				
 				if ( char_diff >= 0 ) {
 					if ( $el.is( '.'+options.maxClassName ) )
-						$el.html( options.positiveCopy.replace("{n}", '<span class="num"/>') );
+						$el.html( options.positiveCopy.replace('{n}', '<span class="num"/>') );
 				} else {
 					if ( !$el.is( '.'+options.maxClassName ) )
-						$el.html( options.negativeCopy.replace("{n}", '<span class="num"/>') );
+						$el.html( options.negativeCopy.replace('{n}', '<span class="num"/>') );
 				}
 				
 				$el[ (char_diff < 0 ? 'add' : 'remove') + 'Class' ]( options.maxClassName );
 				$el.find('.num').text( Math.abs(char_diff) );
 				
 				if ( char_diff == -1 || char_diff == 1 )
-					$el.html( $el.html().replace(/characters\b/, "character") );
+					$el.html( $el.html().replace(/characters\b/, 'character') );
 				else
-					$el.html( $el.html().replace(/character\b/, "characters") );
+					$el.html( $el.html().replace(/character\b/, 'characters') );
 					
 				prev_char_diff = char_diff;
 			};
