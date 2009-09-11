@@ -54,3 +54,7 @@ _Note: In the last example, the code is wrapped in an `each()` function call to 
 The expandable plugin is dual licensed *(just like jQuery)* under the [MIT](http://www.opensource.org/licenses/mit-license.php) and [GPL](http://www.opensource.org/licenses/gpl-license.php) licenses.
 
 Copyright (c) 2009 [Brandon Aaron](http://brandonaaron.net)
+
+## Contributors
+
+Neil Monroe (neil.monroe[at]gmail.com)

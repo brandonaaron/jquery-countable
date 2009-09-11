@@ -2,13 +2,8 @@
  * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) 
  * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
  *
- * Modified by Neil Monroe (neil.monroe@gmail.com)
- *
- * 2009-08-28 - Added 'defaultText' option to specify text to ignore if using label
- *              text inside the field that is not considered user-entered content.
- *
- * 2009-03-20 - Initial release. Enhanced Brandon's version by adding the ability
- *              to apply the count to a target container.
+ * Contributions by:
+ *   - Neil Monroe (neil.monroe[at]gmail.com)
  */
 
 (function($) {
