@@ -1,5 +1,8 @@
 # countable Changelog
 
+## 2010-02-11
+Releasing as 1.0 :)
+
 ## 2009-08-28
 Added 'defaultText' option to specify text to ignore if using label text inside the field that is not considered user-entered content. *By Neil Monroe (neil.monroe[at]gmail.com)*
 

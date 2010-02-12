@@ -9,7 +9,7 @@ The countable plugin has 13 settings:
 
 * `threshold` - The percentage at which the counter begins to fade in. Default is **0.5**.
 * `appendMethod` - One of **insertAfter**, **insertBefore**, **prependTo**, or **appendTo** to insert the counter after or before the input/textarea or prepend or append to the **target** element. Default is **'insertAfter'**.
-* `target` - Container element into which to place the counter.
+* `target` - The element used relatively for the `appendMethod` option. Default is the actual input or textarea.
 * `startOpacity` - The percentage of opacity it should start out with once it reaches the threshold. Default is **0.25**.
 * `maxLength` - The maximum number of characters. Default uses the **maxlength** attribute of the input/textarea.
 * `maxClassName` - The class name to add once the user has gone over the max number of characters. Default is **'maxed'**.
@@ -51,9 +51,9 @@ _Note: In the last example, the code is wrapped in an `each()` function call to 
 
 ## License
 
-The expandable plugin is dual licensed *(just like jQuery)* under the [MIT](http://www.opensource.org/licenses/mit-license.php) and [GPL](http://www.opensource.org/licenses/gpl-license.php) licenses.
+The countable plugin is licensed under the MIT License (LICENSE.txt).
 
-Copyright (c) 2009 [Brandon Aaron](http://brandonaaron.net)
+Copyright (c) 2010 [Brandon Aaron](http://brandonaaron.net)
 
 ## Contributors
 
