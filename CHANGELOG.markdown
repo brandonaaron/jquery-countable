@@ -1,5 +1,8 @@
 # countable Changelog
 
+## 2010-06-01
+Forked the original project from Brandon Aaron; Added parameters for disabling a form submit button when the maxCount is reached.
+
 ## 2010-02-11
 Releasing as 1.0 :)
 
